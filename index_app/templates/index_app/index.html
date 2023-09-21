@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> کافی شاپ اشکان باریستا</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Oswald:wght@600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index_app/css/all.min.css' %}"> <!-- fontawesome -->
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{% static 'index_app/css/tailwind.css' %}">
+    <link rel="stylesheet" href="{% static 'index_app/css/tooplate-antique-cafe.css' %}">
+
+
+    <style>
+        @font-face {
+            font-family: digi_maryam;
+            src: url('{%static 'index_app/fonts/Digi_Maryam_Regular.woff'%}') format("woff");
+        }
+
+    </style>
+</head>
+<body style="font-family: digi_maryam;">
+<!-- Intro -->
+<div id="intro" class="parallax-window" data-parallax="scroll"
+     data-image-src="{% static 'index_app/img/antique-cafe-bg-01.jpg' %}">
+    <nav id="tm-nav" class="fixed w-full">
+        <div class="tm-container mx-auto px-2 md:py-6 text-right">
+            <button class="md:hidden py-2 px-2" id="menu-toggle"><i class="fas fa-2x fa-bars tm-text-gold"></i></button>
+            <ul class="mb-3 md:mb-0 text-2xl font-normal flex justify-end flex-col md:flex-row">
+                <li class="inline-block mb-4 mx-4"><a href="#intro" class="tm-text-gold py-1 md:py-3 px-4">خانه</a></li>
+                <li class="inline-block mb-4 mx-4"><a href="#menu" class="tm-text-gold py-1 md:py-3 px-4">منو</a></li>
+                <li class="inline-block mb-4 mx-4"><a href="#about" class="tm-text-gold py-1 md:py-3 px-4">درباره ما</a>
+                </li>
+                <li class="inline-block mb-4 mx-4"><a href="#contact" class="tm-text-gold py-1 md:py-3 px-4">تماس با
+                    ما</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mx-auto px-2 tm-intro-width" dir="rtl">
+        <div class="sm:pb-60 sm:pt-48 py-20">
+            <div class="bg-black bg-opacity-70 p-12 mb-5 text-center">
+                <h1 class="text-white text-5xl tm-logo-font mb-5" style="font-family: digi_maryam; font-size: 80px;">
+                    اشکان باریستا</h1>
+                <p class="tm-text-gold tm-text-2xl" style="font-size: 25px;">لحظاتی از شادی و سرشار از انرژی در قلب
+                    شهر</p>
+            </div>
+            <div class="bg-black bg-opacity-70 p-10 mb-5">
+                <p class="text-white leading-8 text-sm font-light" style="font-size: 20px;">
+                    هنر قهوه‌سازی به ارمغان می‌آوریم!
+                    <br/>
+                    با تیم ما از باریستاهای ماهر و متخصص، تجربه‌ی بی‌نظیری از قهوه‌سازی را تجربه کنید. ما با استفاده از
+                    بهترین دانش و فنون قهوه‌سازی، قهوه‌ای با طعم و عطر بی‌نظیر برای شما آماده می‌کنیم.
+                </p>
+            </div>
+
+            <div class="text-center">
+                <div class="inline-block">
+                    <a href="#menu"
+                       class="flex justify-center items-center bg-black bg-opacity-70 py-6 px-8 rounded-lg font-semibold tm-text-2xl tm-text-gold hover:text-gray-200 transition">
+                        <i class="fas fa-coffee mr-3"></i>
+                        <span>دنیای قهوه های ما</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cafe Menu -->
+<div id="menu" class="parallax-window" data-parallax="scroll"
+     data-image-src="{% static 'index_app/img/antique-cafe-bg-02.jpg' %}">
+    <div class="container mx-auto tm-container py-24 sm:py-48">
+        <div class="text-center mb-16">
+            <h2 class="bg-white tm-text-brown py-6 px-12 text-4xl font-medium inline-block rounded-md">دنیای قهوه های
+                ما</h2>
+        </div>
+
+
+        <div class="flex flex-col lg:flex-row justify-around items-center">
+            <!--list left-->
+
+            <div class="flex-1 m-5 rounded-xl px-4 py-6 sm:px-8 sm:py-10 tm-bg-brown tm-item-container">
+                {% for i in list1 %}
+                <div class="flex items-start mb-6 tm-menu-item">
+                    <img src="{{ i.coffeeImage.url }}" alt="Image" class="rounded-md" width="170px" height="120px">
+                    <div class="ml-3 sm:ml-6">
+                        <h3 class="text-lg sm:text-xl mb-2 sm:mb-3 tm-text-yellow">{{ i.coffeeName }}</h3>
+                        <div class="text-white text-md sm:text-lg font-light mb-1">  کوچک : {{ i.coffeeSmall }} تومان </div>
+                        <div class="text-white text-md sm:text-lg font-light">  بزرگ :  {{ i.coffeeBig }} تومان </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+            <!--list right-->
+
+            <div class="flex-1 m-5 rounded-xl px-4 py-6 sm:px-8 sm:py-10 tm-bg-brown tm-item-container">
+                {% for j in list2 %}
+                <div class="flex items-start justify-end mb-6 tm-menu-item-2">
+                    <div class="text-right mr-6">
+                        <h3 class="text-lg sm:text-xl mb-2 sm:mb-3 tm-text-yellow">{{ j.coffeeName }}</h3>
+                        <div class="text-white text-md sm:text-lg font-light mb-1"> کوچک : {{ j.coffeeSmall }} تومان </div>
+                        <div class="text-white text-md sm:text-lg font-light"> بزرگ : {{ j.coffeeBig }} تومان </div>
+                    </div>
+                    <img src="{{ j.coffeeImage.url }}" alt="Image" class="rounded-md" width="170px" height="120px">
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+<div id="about" class="parallax-window" data-parallax="scroll"
+     data-image-src="{% static 'index_app/img/antique-cafe-bg-03.jpg' %}">
+    <div class="container mx-auto tm-container py-24 sm:py-48">
+        <div class="tm-item-container sm:ml-auto sm:mr-12 mx-auto sm:px-0 px-4">
+            <div class="bg-white bg-opacity-80 p-12 pb-14 rounded-xl mb-5" dir="rtl">
+                <h2 class="mb-6 tm-text-green text-4xl font-medium">کمی درباره ی ما بدانید!</h2>
+                <p class="mb-6 text-base leading-8" style="font-size: 23px;">
+                    کافی شاپ اشکان باریستا
+                    <br>
+                    جایی که هنر قهوه‌سازی و لذت مشتری در دستان هم می‌آمیزد!
+                    <br>
+                    کافی شاپ اشکان باریستا، به عنوان یک مقصد محبوب برای دوستداران قهوه، تجربه‌ای منحصربه‌فرد و
+                    شگفت‌انگیز از هنر قهوه‌سازی را ارائه می‌دهد. با توجه به دستیابی به بهترین باریستاها و متخصصان قهوه،
+                    ما با افتخار به شما قهوه‌هایی با کیفیت بالا و طعمی بی‌نظیر ارائه می‌دهیم.
+
+                    در کافی شاپ اشکان باریستا، ما به آرامش و راحتی مشتریانمان اهمیت می‌دهیم. با طراحی داخلی زیبا و محیطی
+                    دوستانه، شما می‌توانید در محیطی آرام و دلنشین لذت ببرید. همچنین، نوشیدنی‌های متنوع و متناسب با سلیقه
+                    شما را در منوی ما خواهید یافت.
+
+                    هنر قهوه‌سازی در کافی شاپ اشکان باریستا همچنین نمایانگر تمرکز ما بر جزئیات است. باریستاهای ما
+                    مهارت‌های خاص خود را در آسیاب کردن دانه قهوه، تنظیم دما، استخراج بهینه و تزیین قهوه‌ها به کار
+                    می‌برند تا به شما تجربه‌ای بی‌نظیر ارائه دهند.
+
+                    کافی شاپ اشکان باریستا منحصربه‌فردی است که بیش از یک جایگاه قهوه فراتر می‌رود. با ما همراه شوید و
+                    تجربه‌ای لذت‌بخش و طعمی غرق در هنر قهوه‌سازی را تجربه کنید.
+                </p>
+
+            </div>
+            <a href="#contact" class="inline-block tm-bg-green transition text-white text-xl pt-3 pb-4 px-8 rounded-md">
+                <i class="far fa-comments mr-4"></i>
+                نظر شما
+            </a>
+        </div>
+    </div>
+</div>
+<div id="contact" class="parallax-window relative" data-parallax="scroll"
+     data-image-src="{% static 'index_app/img/antique-cafe-bg-04.jpg' %}">
+    <div class="container mx-auto tm-container pt-24 pb-48 sm:py-48">
+        <div class="flex flex-col lg:flex-row justify-around items-center lg:items-stretch">
+            <div class="flex-1 rounded-xl px-10 py-12 m-5 bg-white bg-opacity-80 tm-item-container" dir="rtl">
+                <h2 class="text-3xl mb-6 tm-text-green" style="font-size: 40px;">با ما تماس بگیرید</h2>
+                <p class="mb-6 text-lg leading-8" style="font-size: 27px;">
+                    شما میتوانید از همین بخش نظرتان را برای ما ارسال کنید یا از طریق راه های ارتباطی زیر با ما در ارتباط
+                    باشید.
+                </p>
+                <p class="mb-10 text-lg" dir="ltr">
+                    <span style="font-size: 25px;">تلفن : </span>
+                    <span class="block mb-2"><a href="tel:09391838025" class="hover:text-yellow-600 transition">09391838025</a></span>
+                    <span style="font-size: 25px;">ایمیل : </span>
+                    <span class="block"><a href="ashkanp09@gmail.com" class="hover:text-yellow-600 transition">ashkanp09@gmail.com</a></span>
+                </p>
+                <div class="text-center">
+                    <a href="https://www.google.com/maps"
+                       class="inline-block text-white text-2xl pl-10 pr-12 py-6 rounded-lg transition tm-bg-green">
+                        <i class="fas fa-map-marked-alt mr-8"></i>
+                        آدرس ما کجاست؟
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 rounded-xl p-12 pb-14 m-5 bg-black bg-opacity-50 tm-item-container">
+
+                <!--we use get to get all elements.notic that change it to post method to be expert-->
+
+                <form action="" class="text-lg" dir="rtl">
+                    <input type="text" name="name"
+                           class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold"
+                           placeholder="نام" required=""/>
+                    <input type="email" name="email"
+                           class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold"
+                           placeholder="ایمیل" required=""/>
+                    <textarea rows="6" name="message"
+                              class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold"
+                              placeholder="متن ..." required=""></textarea>
+                    <div class="text-right">
+                        <button type="submit" class="text-white hover:text-yellow-1000 transition">ارسال</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer class="absolute bottom-0 left-0 w-full">
+            <div class="text-white container mx-auto tm-container p-8 text-lg flex flex-col md:flex-row justify-between">
+                <span style="font-size: 12px;">توسعه دهنده : اشکان پورعبدالله</span>
+
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="{% static 'index_app/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'index_app/js/parallax.min.js' %}"></script>
+<script src="{% static 'index_app/js/jquery.singlePageNav.min.js' %}"></script>
+<script>
+
+    function checkAndShowHideMenu() {
+        if (window.innerWidth < 768) {
+            $('#tm-nav ul').addClass('hidden');
+        } else {
+            $('#tm-nav ul').removeClass('hidden');
+        }
+    }
+
+    $(function () {
+        var tmNav = $('#tm-nav');
+        tmNav.singlePageNav();
+
+        checkAndShowHideMenu();
+        window.addEventListener('resize', checkAndShowHideMenu);
+
+        $('#menu-toggle').click(function () {
+            $('#tm-nav ul').toggleClass('hidden');
+        });
+
+        $('#tm-nav ul li').click(function () {
+            if (window.innerWidth < 768) {
+                $('#tm-nav ul').addClass('hidden');
+            }
+        });
+
+        $(document).scroll(function () {
+            var distanceFromTop = $(document).scrollTop();
+
+            if (distanceFromTop > 100) {
+                tmNav.addClass('scroll');
+            } else {
+                tmNav.removeClass('scroll');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>
